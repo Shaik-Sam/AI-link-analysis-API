@@ -1,0 +1,56 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0 -- /tmp/venv/bin/python
+rootdir: /home/claude/ai-link-analysis
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 40 items
+
+tests/test_link_analysis.py::test_health PASSED                          [  2%]
+tests/test_link_analysis.py::test_bad_urls_return_structured_errors[not a url-invalid_url] PASSED [  5%]
+tests/test_link_analysis.py::test_bad_urls_return_structured_errors[ftp://example.com-invalid_scheme] PASSED [  7%]
+tests/test_link_analysis.py::test_bad_urls_return_structured_errors[http://user:pass@example.com-invalid_url] PASSED [ 10%]
+tests/test_link_analysis.py::test_bad_urls_return_structured_errors[http://127.0.0.1-blocked_address] PASSED [ 12%]
+tests/test_link_analysis.py::test_bad_urls_return_structured_errors[http://localhost-blocked_address] PASSED [ 15%]
+tests/test_link_analysis.py::test_bad_urls_return_structured_errors[http://169.254.169.254/latest/meta-data-blocked_address] PASSED [ 17%]
+tests/test_link_analysis.py::test_bad_urls_return_structured_errors[http://10.0.0.5-blocked_address] PASSED [ 20%]
+tests/test_link_analysis.py::test_bad_urls_return_structured_errors[http://[::1]-blocked_address] PASSED [ 22%]
+tests/test_link_analysis.py::test_bad_urls_return_structured_errors[http://2130706433-blocked_address] PASSED [ 25%]
+tests/test_link_analysis.py::test_bad_urls_return_structured_errors[https://example.com:22-blocked_port] PASSED [ 27%]
+tests/test_link_analysis.py::test_missing_body_is_validation_error PASSED [ 30%]
+tests/test_link_analysis.py::test_no_api_key_returns_503 PASSED          [ 32%]
+tests/test_link_analysis.py::test_successful_analysis_over_http PASSED   [ 35%]
+tests/test_link_analysis.py::test_competitors_are_deduplicated_and_labelled PASSED [ 37%]
+tests/test_link_analysis.py::test_platforms_and_sources_are_normalised PASSED [ 40%]
+tests/test_link_analysis.py::test_invalid_json_is_retried_then_succeeds PASSED [ 42%]
+tests/test_link_analysis.py::test_persistent_invalid_output_fails_gracefully PASSED [ 45%]
+tests/test_link_analysis.py::test_results_are_cached PASSED              [ 47%]
+tests/test_link_analysis.py::test_parse_page_extracts_and_cleans_content PASSED [ 50%]
+tests/test_link_analysis.py::test_schema_requires_five_queries PASSED    [ 52%]
+tests/test_link_analysis.py::test_unknown_platform_is_rejected PASSED    [ 55%]
+tests/test_link_analysis.py::test_extract_json_handles_code_fences PASSED [ 57%]
+tests/test_link_analysis.py::test_cost_estimate PASSED                   [ 60%]
+tests/test_link_analysis.py::test_public_ips_allowed[8.8.8.8] PASSED     [ 62%]
+tests/test_link_analysis.py::test_public_ips_allowed[1.1.1.1] PASSED     [ 65%]
+tests/test_link_analysis.py::test_public_ips_allowed[2606:4700:4700::1111] PASSED [ 67%]
+tests/test_link_analysis.py::test_non_public_ips_blocked[10.0.0.1] PASSED [ 70%]
+tests/test_link_analysis.py::test_non_public_ips_blocked[127.0.0.1] PASSED [ 72%]
+tests/test_link_analysis.py::test_non_public_ips_blocked[169.254.169.254] PASSED [ 75%]
+tests/test_link_analysis.py::test_non_public_ips_blocked[192.168.1.1] PASSED [ 77%]
+tests/test_link_analysis.py::test_non_public_ips_blocked[172.16.0.1] PASSED [ 80%]
+tests/test_link_analysis.py::test_non_public_ips_blocked[100.64.0.1] PASSED [ 82%]
+tests/test_link_analysis.py::test_non_public_ips_blocked[0.0.0.0] PASSED [ 85%]
+tests/test_link_analysis.py::test_non_public_ips_blocked[::1] PASSED     [ 87%]
+tests/test_link_analysis.py::test_non_public_ips_blocked[fe80::1] PASSED [ 90%]
+tests/test_link_analysis.py::test_non_public_ips_blocked[::ffff:127.0.0.1] PASSED [ 92%]
+tests/test_link_analysis.py::test_non_public_ips_blocked[224.0.0.1] PASSED [ 95%]
+tests/test_link_analysis.py::test_normalize_url_adds_scheme_and_strips_fragment PASSED [ 97%]
+tests/test_link_analysis.py::test_validate_url_blocks_loopback PASSED    [100%]
+
+=============================== warnings summary ===============================
+../../../tmp/venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /tmp/venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 40 passed, 1 warning in 0.79s =========================

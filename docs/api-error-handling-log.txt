@@ -1,0 +1,26 @@
+GET /health
+{"status":"ok"}
+HTTP 200
+
+POST /link-analysis invalid url
+{"success":false,"error":{"code":"invalid_url","message":"The URL is empty or contains whitespace."}}
+HTTP 400
+
+POST /link-analysis SSRF cloud metadata
+{"success":false,"error":{"code":"blocked_address","message":"The URL points to a private, internal or reserved network address and cannot be analysed."}}
+HTTP 400
+
+POST /link-analysis localhost
+{"success":false,"error":{"code":"blocked_address","message":"The URL points to a private, internal or reserved network address and cannot be analysed."}}
+HTTP 400
+
+POST /link-analysis missing url
+{"success":false,"error":{"code":"validation_error","message":"The request body must be JSON with a non-empty 'url' string."}}
+HTTP 422
+
+POST /link-analysis unresolvable host
+{"success":false,"error":{"code":"unresolvable_host","message":"The host 'no-such-host-abc123.invalid' could not be resolved."}}
+HTTP 400
+
+GET /docs
+HTTP 200
