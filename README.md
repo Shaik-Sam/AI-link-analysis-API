@@ -2,9 +2,9 @@
 
 A FastAPI service that fetches a website, extracts its content, and uses an LLM to produce five structured analysis sections: competitor comparison, top 5 search queries, SEO improvements, top 5 services and target audience.
 
-- **Live Demo:** `[https://ai-link-analysis-xxxx.onrender.com](https://ai-link-analysis-xxxx.onrender.com)` *(update after Render deploy)*
-- **API Endpoint:** `[https://ai-link-analysis-xxxx.onrender.com/link-analysis](https://ai-link-analysis-xxxx.onrender.com/link-analysis)` *(update after Render deploy)*
-- **API Docs:** `[https://ai-link-analysis-xxxx.onrender.com/docs](https://ai-link-analysis-xxxx.onrender.com/docs)` *(update after Render deploy)*
+- **Live Demo (Interactive Docs):** https://ai-link-analysis-g1vs.onrender.com/docs
+- **API Endpoint:** https://ai-link-analysis-g1vs.onrender.com/link-analysis
+- **Health Check:** https://ai-link-analysis-g1vs.onrender.com/health
 
 ## Features
 
